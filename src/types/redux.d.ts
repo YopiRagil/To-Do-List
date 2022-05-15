@@ -32,7 +32,3 @@ interface IState {
 	store: IToDos;
 }
 
-type TParamsPokeList = {
-	limit: number;
-	offset: number;
-};
