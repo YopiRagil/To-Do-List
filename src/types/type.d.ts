@@ -1,7 +1,3 @@
-type TableHistoryType = {
-	combineHistory: TypeHistory[];
-};
-
 type ButtonType = {
 	onClick: () => void;
 	label: string;
@@ -9,4 +5,12 @@ type ButtonType = {
 	className?: string;
 	disabled?: boolean;
 	color?: string
+};
+
+type InputType = {
+	onChange: (e:any) => void;
+	name: string
+	className?: string
+	value?: any
+	placeholder?: string
 };

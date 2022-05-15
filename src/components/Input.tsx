@@ -1,4 +1,4 @@
-export const Input = (props: any) => {
+export const Input = (props: InputType) => {
 	const { onChange, name, className, value, placeholder } = props;
 	return (
 		<input
