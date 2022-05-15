@@ -42,12 +42,12 @@ const AddToDo = (props: any) => {
 						<div className="flex justify-end gap-x-2 mt-2">
 							<Button
 								label="Cancel"
-								type="negative"
+								type="red"
 								onClick={() => setIsAddOn(false)}
 							/>
 							<Button
 								disabled={!form.title}
-								type="positive"
+								type="primary"
 								label="Add"
 								onClick={handleAdd}
 							/>

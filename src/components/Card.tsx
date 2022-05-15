@@ -12,7 +12,7 @@ import {
 const Card = (props: IToDoType) => {
 	const isDone = props.status === 1;
 	const dispatch: any = useDispatch();
-	const color = !isDone ? "primary" : "blue-400";
+	const color = !isDone ? "primary" : "blue";
 	const [edit, setEdit] = useState(false);
 	const [form, setForm] = useState(props);
 
@@ -45,10 +45,10 @@ const Card = (props: IToDoType) => {
 					onChange={handleChangeEdit}
 					value={form.title}
 					name="title"
-					className={`font-bold text-${color}`}
+					className={`font-bold ${isDone? "text-blue-400":"text-primary"}`}
 				/>
 			) : (
-				<p className={`font-bold text-${color}`}>{props.title}</p>
+				<p className={`font-bold ${isDone? "text-blue-400":"text-primary"}`}>{props.title}</p>
 			)}
 			<p className="text-sm text-gray-600">Created At {props.createdAt}</p>
 			{edit ? (
@@ -63,27 +63,21 @@ const Card = (props: IToDoType) => {
 			)}
 			{edit ? (
 				<div className="flex justify-end gap-x-2 mt-2">
-					<Button label="Cancel" type="negative" onClick={handleCancelSave} />
+					<Button label="Cancel" type="red" onClick={handleCancelSave} />
 					<Button
 						disabled={!form.title}
-						type="positive"
+						type={color}
 						label="Save"
 						onClick={handleSaveEdit}
 					/>
 				</div>
 			) : (
 				<div className="flex justify-between gap-x-2  mt-2">
-					<Button type="negative" label="Delete" onClick={handleDelete} />
+					<Button type="red" label="Delete" onClick={handleDelete} />
 					<div className="flex justify-end gap-x-2 ">
+						<Button type="gray" label="Edit" onClick={() => setEdit(!edit)} />
 						<Button
-							color={"gray-400"}
-							type="positive"
-							label="Edit"
-							onClick={() => setEdit(!edit)}
-						/>
-						<Button
-							color={color}
-							type="positive"
+							type={color}
 							label={isDone ? "Mark as Not Done" : "Mars as Done"}
 							onClick={handleDoneNotDone}
 						/>

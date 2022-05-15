@@ -8,7 +8,11 @@ const TypeOfCard = (props: any) => {
 	return (
 		<div className="relative col-span-2 border rounded border-gray-300 bg-gray-300 max-h-[90vh] overflow-y-auto">
 			<p
-				className={`sticky top-0 text-white bg-${color} p-2 rounded font-bold`}
+				className={
+					title === "Done"
+						? `sticky top-0 text-white bg-blue-400 p-2 rounded font-bold`
+						: `sticky top-0 text-white bg-primary p-2 rounded font-bold`
+				}
 			>
 				{title}
 			</p>
